@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+
+{% block title%}Cadastro e Login{%endblock%}
+
+{% block head%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/logincss.css') }}">
+{%endblock%}
+
+{%block content%}
+<section class="formulario">
+        <h2>Cadastro</h2>
+        <form method="post" action="{{url_for("novo_usuario") }}" id="cadastro">
+            <label for="nome">Nome:</label>
+            <input id="nome" name="first_name" type="text" />
+            <span id="erro_nome" class="erro">Este campo precisa ser preenchido</span>
+
+            <label for="sobrenome">Sobrenome:</label>
+            <input id="sobrenome" name="last_name" type="text" />
+            <span id="erro_sobrenome" class="erro">Este campo precisa ser preenchido</span>
+
+
+            <label for="username">Nome de usuário:</label>
+            <input id="username" name="username" type="text" />
+            <span id="erro_username" class="erro">Este campo precisa ser preenchido</span>
+            
+            <label for="email">E-mail:</label>
+            <input id="email" name="email" type="text" />
+            <span id="erro_email" class="erro">Você esqueceu do @ ou .com </span>
+
+
+            <label for="password">Senha:</label>
+            <input id="password" name="password" type="password"/>
+            <span id="erro_senha" class="erro">A senha precisa ter mais que 8 dígitos</span>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <script>
+            validacaoFormulario("cadastro");
+        </script>
+</section>
+{%endblock%}
